@@ -27,7 +27,7 @@
   "gridUnits": "ft",
   "background" : "ui/falberg.webp",
   "url": "",
-  "manifest": "example",
+  "manifest": "https://raw.githubusercontent.com/AlexTCO/eclipsephase1e/main/system.json",
   "download": "https://github.com/AlexTCO/EclipsePhase1eFoundry/archive/refs/heads/main.zip",
   "license": "LICENSE.txt"
 }
