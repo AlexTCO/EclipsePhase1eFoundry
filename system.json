@@ -1,8 +1,8 @@
 {
-  "name": "EclipsePhase1eFoundry",
+  "name": "eclipsephase1e",
   "title": "Eclipse Phase",
-  "description": "Eclipse Phase 1 edition",
-  "version": "0.0.1",
+  "description": "Eclipse Phase 1 edition for FoundryVTT",
+  "version": "0.0.2",
   "minimumCoreVersion": "0.7.0",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -10,16 +10,7 @@
   "esmodules": [],
   "styles": [],
   "scripts" : [],
-  "packs": [    
-  {
-    "label": "Legacies",
-    "entity": "Item",
-    "name": "legacies",
-    "path": "packs/legacies.db",
-    "system": "degenesis",
-    "package": "degenesis"
-  }
-],
+  "packs": [],
   "languages": [
     {
       "lang": "en",
