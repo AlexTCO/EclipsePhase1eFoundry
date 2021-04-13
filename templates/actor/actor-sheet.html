@@ -1,0 +1,133 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    {{!-- Nombre, foto y logo --}}
+    <header class="sheet-header">
+        <div class="headroom">
+            <div class="centerBackground" style="position: absolute; clip-path: polygon(0 25%, 85% 25%, 100% 70%, 0% 70%); width: 110px; height: 55px; padding-left: 0.5em; top: -37px;">
+                <img class="logo-img" src="systems/eclipsephase/img/eclipse.png" title="ep2e logo"/>
+            </div>
+            <div>
+                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+            </div>
+            <div class="centerBackground" style="position: absolute; clip-path: polygon(0 20%, 90% 20%, 100% 100%, 0% 100%); bottom: 4px; padding-bottom: 0">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" style="width: auto; font-size: 20px; max-width: 250px; text-shadow: 0 0 5px #161616"/>
+            </div>
+        </div>
+    </header>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="ego">Ego</a>
+        <a class="item" data-tab="skills">Skills</a>
+        <a class="item" data-tab="body">Body</a>
+        {{#if actor.vehicle}}
+        <a class="item" data-tab="vehicles">Vehicles</a>
+        {{/if}}
+        <a class="item" data-tab="weapons">Inventory</a>
+        {{#if actor.aspect}}
+        <a class="item" data-tab="psi">Psi</a>
+        {{/if}}
+    </nav>
+
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Ego Tab --}}
+        <div class="tab" data-group="primary" data-tab="history">
+            <div class="contentBox">
+                <div class="flexrow">
+                    <h3 class="subheader">Personal</h3>
+                    <div class="alignRight flexGrowThreeQuarter">
+                    </div>
+                </div>
+                <div class="itemBackground flexrow flex-group-center skills">
+                    <label class="input-large resource-label alignCenter" >Transfondo</label>
+                    <select class="selectSpecApt item-standard-margin-medium" name="data.ego.origin" data-type="String" >
+                        {{#select data.ego.origin}}
+                        {{#each config.origins as |origin key|}}
+                        <option value="{{origin}}">{{origin}}</option>
+                        {{/each}} {{/select}}
+                    </select>
+                    <label class="input-medium resource-label alignCenter" >Sex</label>
+                    <select class="selectSpecApt item-standard-margin-medium" name="data.ego.sex" data-type="String">
+                        {{#select data.ego.sex}}
+                        {{#each config.sexes as |sex key|}}
+                        <option value="{{sex}}">{{sex}}</option>
+                        {{/each}} {{/select}}
+                    </select>
+                    <label class="input-large resource-label alignCenter" >Gender</label>
+                    <select class="selectSpecApt item-standard-margin-medium" name="data.ego.gender" data-type="String">
+                        {{#select data.ego.gender}}
+                        {{#each config.genders as |gender key|}}
+                        <option value="{{gender}}">{{gender}}</option>
+                        {{/each}} {{/select}}
+                    </select>
+                </div>
+                <div class="itemBackground">
+                    <div class="flexrow flex-group-center">
+                        <label class="input-large resource-label alignLeft" >Motivations</label>
+                        <div class="flexrow">
+                            <input class="alignCenter" type="text" name="data.ego.motivations.motivation1" value='{{#if data.ego.motivations.motivation1}}{{data.ego.motivations.motivation1}} {{else}}{{/if}}' placeholder="e.g. Reach the horizon"/>
+                            <input class="alignCenter" type="text" name="data.ego.motivations.motivation2" value='{{#if data.ego.motivations.motivation2}}{{data.ego.motivations.motivation2}} {{else}}{{/if}}' placeholder="e.g. Reach the horizon"/>
+                            <input class="alignCenter" type="text" name="data.ego.motivations.motivation3" value='{{#if data.ego.motivations.motivation3}}{{data.ego.motivations.motivation3}} {{else}}{{/if}}' placeholder="e.g. Reach the horizon"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="itemBackground flexrow flex-group-center skills">
+                    <label class="input-large resource-label" >Languages</label>
+                    <input type="text" name="data.ego.languages" value="{{data.ego.languages}}" placeholder="e.g. Hindi, Chinese, English"/>
+                </div>
+            </div>
+            <div class="flexrow flex-between">
+                <div class="contentBox" style="flex: 0.4">
+                    <div class="flexrow">
+                        <h3 class="subheader">Traits</h3>
+                        <div class="alignRight flexGrowHalf">
+                        </div>
+                    </div>
+                    <div class="itemBackground shape2">
+                        {{#if actor.trait}}
+                        {{#each actor.trait as |item id|}}
+                        <div class="item flexrow flex-group-center" data-item-id="{{item._id}}">
+                            <div class="item-image flex-group-left" style="flex: 0.2;"><i class="far fa-plus-square" style="color: #47ab30;"></i></div>
+                            <h4 class="item-name item-control item-edit noMargin hoverable"><strong>{{item.name}}</strong></h4>
+                            <div class="item-controls flex-group-right" style="flex: 0.2;">
+                                <a class="item-control item-delete" title="Delete Item"><i class="far fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                        <div class="itemdescription" style="margin-bottom: 10px">
+                            <strong>Description:</strong> {{item.data.description}}
+                        </div>
+                        {{/each}}
+                        {{else}}
+                        <div class="flex-group-center">
+                            <label class="resource-label">You are traitless</label>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="contentBox" style="flex: 0.15;">
+                    <div class="flexrow">
+                        <h3 class="subheaderBlank">Ego Flex</h3>
+                    </div>
+                    <div class="form-group listBackground noMargin shape5">
+                        <input type="number" name="data.ego.egoFlex" value="{{data.ego.egoFlex}}" data-dtype="Number" placeholder="0"/>
+                    </div>
+                </div>
+                <div class="contentBox" style="flex: 0.4">
+                    <div class="flexrow">
+                        <div class="alignRight flexGrowHalf">
+                        </div>
+                        <h3 class="subheaderMirror">Flaws</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="flexrow">
+                <h3 class="subheader">Additional Information</h3>
+                <div class="alignRight flexGrowThreeQuarter">
+                </div>
+            </div>
+            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

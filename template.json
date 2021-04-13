@@ -486,7 +486,8 @@
   },
   "Item": {
     "types": [
-      "weapon"
+      "rangedWeapon",
+      "ccWeapon"
     ],
     "templates": {
       "base": {
@@ -498,7 +499,7 @@
         "slotType": ""
       }
     },
-    "weapon": {
+    "rangedWeapon": {
       "templates": [
         "base",
         "buyable"
@@ -508,6 +509,13 @@
       "ammoMax": null,
       "dv": null,
       "firingMode": ""
+    },
+     "ccWeapon": {
+      "templates": [
+        "base",
+        "buyable"
+      ],
+      "dv": null
     }
   }
 }
