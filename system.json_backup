@@ -1,15 +1,15 @@
 {
   "name": "eclipsephase1e",
-  "title": "EclipsePhase1E",
-  "description": "The Eclipse Phase 1 edition system for FoundryVTT!",
-  "version": "1.0.0",
-  "minimumCoreVersion": "0.7.5",
+  "title": "Eclipse Phase",
+  "description": "Eclipse Phase 1 edition for FoundryVTT",
+  "version": "0.0.2",
+  "minimumCoreVersion": "0.7.0",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
   "author": "Gromout",
-  "esmodules": ["module/eclipsephase1e.js"],
-  "styles": ["css/eclipsephase1e.css"],
-  "scripts": [],
+  "esmodules": [],
+  "styles": [],
+  "scripts" : [],
   "packs": [],
   "languages": [
     {
@@ -25,10 +25,9 @@
   ],
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
+  "background" : "ui/falberg.webp",
   "url": "",
   "manifest": "https://raw.githubusercontent.com/AlexTCO/eclipsephase1e/main/system.json",
-  "download": "https://github.com/AlexTCO/eclipsephase1e/archive/refs/heads/main.zip",
+  "download": "https://github.com/AlexTCO/EclipsePhase1eFoundry/archive/refs/heads/main.zip",
   "license": "LICENSE.txt"
 }
